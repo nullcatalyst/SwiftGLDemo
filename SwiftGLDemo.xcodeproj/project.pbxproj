@@ -12,6 +12,9 @@
 		D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6119469B4C00655A34 /* Images.xcassets */; };
 		D2AB3B6519469B4C00655A34 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6319469B4C00655A34 /* MainMenu.xib */; };
 		D2AB3B7119469B4C00655A34 /* SwiftGLDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B7019469B4C00655A34 /* SwiftGLDemoTests.swift */; };
+		D2AB3B8C19469CB000655A34 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8B19469CB000655A34 /* GLView.m */; };
+		D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */; };
+		D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9119469DD800655A34 /* GLWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 		D2AB3B6F19469B4C00655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3B7019469B4C00655A34 /* SwiftGLDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGLDemoTests.swift; sourceTree = "<group>"; };
 		D2AB3B7C19469BCD00655A34 /* SwiftGLDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGLDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2AB3B8A19469CB000655A34 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
+		D2AB3B8B19469CB000655A34 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		D2AB3B8D19469D8C00655A34 /* GLFullscreenWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFullscreenWindow.h; sourceTree = "<group>"; };
+		D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFullscreenWindow.m; sourceTree = "<group>"; };
+		D2AB3B9019469DD800655A34 /* GLWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWindowController.h; sourceTree = "<group>"; };
+		D2AB3B9119469DD800655A34 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				D2AB3B7C19469BCD00655A34 /* SwiftGLDemo-Bridging-Header.h */,
+				D2AB3B8A19469CB000655A34 /* GLView.h */,
+				D2AB3B8B19469CB000655A34 /* GLView.m */,
+				D2AB3B8D19469D8C00655A34 /* GLFullscreenWindow.h */,
+				D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */,
+				D2AB3B9019469DD800655A34 /* GLWindowController.h */,
+				D2AB3B9119469DD800655A34 /* GLWindowController.m */,
 				D2AB3B5D19469B4C00655A34 /* main.swift */,
 				D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */,
 				D2AB3B5B19469B4C00655A34 /* Supporting Files */,
@@ -211,7 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */,
+				D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */,
 				D2AB3B5E19469B4C00655A34 /* main.swift in Sources */,
+				D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */,
+				D2AB3B8C19469CB000655A34 /* GLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +424,7 @@
 				D2AB3B7619469B4C00655A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2AB3B7719469B4C00655A34 /* Build configuration list for PBXNativeTarget "SwiftGLDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +433,7 @@
 				D2AB3B7919469B4C00655A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
