@@ -17,6 +17,8 @@
 		D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9119469DD800655A34 /* GLWindowController.m */; };
 		D2AB3B9419469EE900655A34 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9319469EE900655A34 /* Engine.swift */; };
 		D2AB3B9619469F0900655A34 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9519469F0900655A34 /* Scene.swift */; };
+		D2AB3B9B1946A42300655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B991946A42300655A34 /* LICENSE */; };
+		D2AB3B9C1946A42300655A34 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9A1946A42300655A34 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D2AB3B9119469DD800655A34 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
 		D2AB3B9319469EE900655A34 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		D2AB3B9519469F0900655A34 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		D2AB3B991946A42300655A34 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D2AB3B9A1946A42300655A34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		D2AB3B4F19469B4C00655A34 = {
 			isa = PBXGroup;
 			children = (
+				D2AB3B991946A42300655A34 /* LICENSE */,
+				D2AB3B9A1946A42300655A34 /* README.md */,
 				D2AB3B5A19469B4C00655A34 /* SwiftGLDemo */,
 				D2AB3B6D19469B4C00655A34 /* SwiftGLDemoTests */,
 				D2AB3B5919469B4C00655A34 /* Products */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AB3B9B1946A42300655A34 /* LICENSE in Resources */,
 				D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */,
 				D2AB3B6519469B4C00655A34 /* MainMenu.xib in Resources */,
 			);
@@ -237,6 +244,7 @@
 				D2AB3B5E19469B4C00655A34 /* main.swift in Sources */,
 				D2AB3B9619469F0900655A34 /* Scene.swift in Sources */,
 				D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */,
+				D2AB3B9C1946A42300655A34 /* README.md in Sources */,
 				D2AB3B8C19469CB000655A34 /* GLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
