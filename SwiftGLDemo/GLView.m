@@ -8,6 +8,9 @@
 
 #import "GLView.h"
 
+// Import the Swift classes
+#import "SwiftGLDemo-Swift.h"
+
 @implementation GLView
 
 - (CVReturn) getFrameForTime:(const CVTimeStamp *)outputTime {
@@ -89,7 +92,7 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     
     // Change the working directory so that we can use C code to grab resource files
     [NSFileManager.defaultManager changeCurrentDirectoryPath:NSBundle.mainBundle.resourcePath];
-//    Engine::initialize();
+    [Engine initialize];
     
     // Activate the display link
     CVDisplayLinkStart(displayLink);
@@ -145,6 +148,7 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     
     // Set the new dimensions in our renderer
 //    Engine::resize(viewRectPixels.size.width, viewRectPixels.size.height);
+    [Engine resizeWithWidth:viewRectPixels.size.width height:viewRectPixels.size.height];
     
     CGLUnlockContext((CGLContextObj) self.openGLContext.CGLContextObj);
 }
@@ -179,8 +183,8 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     // simultaneously when resizing
     CGLLockContext((CGLContextObj) self.openGLContext.CGLContextObj);
     
-//    Engine::update();
-//    Engine::render();
+    [Engine update];
+    [Engine render];
     
     CGLFlushDrawable((CGLContextObj) self.openGLContext.CGLContextObj);
     CGLUnlockContext((CGLContextObj) self.openGLContext.CGLContextObj);
@@ -194,7 +198,7 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     CVDisplayLinkRelease(displayLink);
     
     // Release the renderer AFTER display link has been released
-//    Engine::finalize();
+    [Engine finalize];
 }
 
 @end

@@ -15,6 +15,8 @@
 		D2AB3B8C19469CB000655A34 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8B19469CB000655A34 /* GLView.m */; };
 		D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */; };
 		D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9119469DD800655A34 /* GLWindowController.m */; };
+		D2AB3B9419469EE900655A34 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9319469EE900655A34 /* Engine.swift */; };
+		D2AB3B9619469F0900655A34 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9519469F0900655A34 /* Scene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFullscreenWindow.m; sourceTree = "<group>"; };
 		D2AB3B9019469DD800655A34 /* GLWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLWindowController.h; sourceTree = "<group>"; };
 		D2AB3B9119469DD800655A34 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
+		D2AB3B9319469EE900655A34 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		D2AB3B9519469F0900655A34 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				D2AB3B9119469DD800655A34 /* GLWindowController.m */,
 				D2AB3B5D19469B4C00655A34 /* main.swift */,
 				D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */,
+				D2AB3B9319469EE900655A34 /* Engine.swift */,
+				D2AB3B9519469F0900655A34 /* Scene.swift */,
 				D2AB3B5B19469B4C00655A34 /* Supporting Files */,
 			);
 			path = SwiftGLDemo;
@@ -226,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */,
+				D2AB3B9419469EE900655A34 /* Engine.swift in Sources */,
 				D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */,
 				D2AB3B5E19469B4C00655A34 /* main.swift in Sources */,
+				D2AB3B9619469F0900655A34 /* Scene.swift in Sources */,
 				D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */,
 				D2AB3B8C19469CB000655A34 /* GLView.m in Sources */,
 			);
