@@ -43,7 +43,7 @@ var currentScene: Scene?
 
 extension Engine {
     class func initialize() {
-        
+        currentScene = DemoScene()
     }
     
     class func finalize() {

@@ -1,0 +1,10 @@
+framework module SwiftGL {
+  umbrella header "SwiftGL.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftGL.Swift {
+    header "SwiftGL-Swift.h"
+}
