@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D25F46C419480D3D00973982 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
+		D25F46C619480D7F00973982 /* SwiftGL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
 		D2AB3B5E19469B4C00655A34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5D19469B4C00655A34 /* main.swift */; };
 		D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */; };
 		D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6119469B4C00655A34 /* Images.xcassets */; };
@@ -18,7 +20,6 @@
 		D2AB3B9419469EE900655A34 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9319469EE900655A34 /* Engine.swift */; };
 		D2AB3B9619469F0900655A34 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9519469F0900655A34 /* Scene.swift */; };
 		D2AB3B9B1946A42300655A34 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B991946A42300655A34 /* LICENSE */; };
-		D2AB3B9E1946A58600655A34 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AB3B9D1946A58600655A34 /* SwiftGL.framework */; };
 		D2AB3BA01946A5C200655A34 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9F1946A5C200655A34 /* DemoScene.swift */; };
 		D2AB3BAD1946A9E200655A34 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3BAB1946A9E200655A34 /* DemoShader1.fsh */; };
 		D2AB3BAE1946A9E200655A34 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3BAC1946A9E200655A34 /* DemoShader1.vsh */; };
@@ -34,7 +35,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D25F46C519480D7500973982 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				D25F46C619480D7F00973982 /* SwiftGL.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D25F46C319480D3D00973982 /* SwiftGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGL.framework; sourceTree = "<group>"; };
 		D2AB3B5819469B4C00655A34 /* SwiftGLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3B5C19469B4C00655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3B5D19469B4C00655A34 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -55,7 +70,6 @@
 		D2AB3B9519469F0900655A34 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		D2AB3B991946A42300655A34 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D2AB3B9A1946A42300655A34 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D2AB3B9D1946A58600655A34 /* SwiftGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGL.framework; sourceTree = "<group>"; };
 		D2AB3B9F1946A5C200655A34 /* DemoScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
 		D2AB3BAB1946A9E200655A34 /* DemoShader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.fsh; sourceTree = "<group>"; };
 		D2AB3BAC1946A9E200655A34 /* DemoShader1.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = DemoShader1.vsh; sourceTree = "<group>"; };
@@ -66,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AB3B9E1946A58600655A34 /* SwiftGL.framework in Frameworks */,
+				D25F46C419480D3D00973982 /* SwiftGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,15 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D25F46C219480D3D00973982 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D25F46C319480D3D00973982 /* SwiftGL.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2AB3B4F19469B4C00655A34 = {
 			isa = PBXGroup;
 			children = (
 				D2AB3B991946A42300655A34 /* LICENSE */,
 				D2AB3B9A1946A42300655A34 /* README.md */,
-				D2AB3B9D1946A58600655A34 /* SwiftGL.framework */,
 				D2AB3B5A19469B4C00655A34 /* SwiftGLDemo */,
-				D2AB3BAA1946A9A400655A34 /* Shaders */,
 				D2AB3B6D19469B4C00655A34 /* SwiftGLDemoTests */,
+				D2AB3BAA1946A9A400655A34 /* Shaders */,
+				D25F46C219480D3D00973982 /* Frameworks */,
 				D2AB3B5919469B4C00655A34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +190,7 @@
 				D2AB3B5419469B4C00655A34 /* Sources */,
 				D2AB3B5519469B4C00655A34 /* Frameworks */,
 				D2AB3B5619469B4C00655A34 /* Resources */,
+				D25F46C519480D7500973982 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -387,6 +410,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = SwiftGLDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -405,6 +429,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = SwiftGLDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

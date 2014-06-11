@@ -15,6 +15,7 @@ class DemoScene: Scene {
     let shader = Shader()
     let vao    = Vao()
     let vbo    = Vbo()
+    var matrix = Mat4.identity()
     
     init() {
         // Load the Shader files
@@ -35,7 +36,8 @@ class DemoScene: Scene {
     }
     
     func update() {
-        
+        // Rotate the matrix by 1 deg each frame (1 full rotation should take 6 seconds)
+        matrix = matrix * Mat4.rotateZ(radians(1))
     }
     
     func render() {
@@ -45,6 +47,9 @@ class DemoScene: Scene {
         
         // Bind the Shader we plan to use
         shader.bind()
+        
+        // Bind the updated matrix
+        shader.bind(uniform: "matrix", m: matrix)
         
         // Bind the VAO we plan to use
         vao.bind()
