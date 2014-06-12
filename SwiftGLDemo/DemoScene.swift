@@ -23,16 +23,18 @@ class DemoScene: Scene {
         
         // Bind the vertices into the Vertex Buffer Object (VBO)
         vbo.bind([
-            Vec2(x: -0.5, y: -0.5),
-            Vec2(x:  0.5, y: -0.5),
-            Vec2(x: -0.5, y:  0.5),
-            Vec2(x:  0.5, y:  0.5),
+            Vertex(position: Vec4(x: -0.5, y: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y: -0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
         ], count: 4)
         
         // After binding some data to our VBO, we must bind our VBO's data
         // into our Vertex Array Object (VAO) using the associated Shader attributes
-        var attribute = GLuint(shader.attribute("position"))
-        vao.bindVec2(attribute, vbo: vbo, offset: 0)
+        var positionAttrib = GLuint(shader.attribute("position"))
+        var colorAttrib    = GLuint(shader.attribute("color"))
+        vao.bindVec4(positionAttrib, vbo: vbo, offset: 0)
+        vao.bindVec4(colorAttrib,    vbo: vbo, offset: sizeof(Vec4))
     }
     
     func update() {
