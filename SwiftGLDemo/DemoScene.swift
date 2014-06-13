@@ -15,6 +15,7 @@ class DemoScene: Scene {
     let shader = Shader()
     let vao    = Vao()
     let vbo    = Vbo()
+    let ibo    = Vbo()
     var matrix = Mat4.identity()
     
     init() {
@@ -23,11 +24,52 @@ class DemoScene: Scene {
         
         // Bind the vertices into the Vertex Buffer Object (VBO)
         vbo.bind([
-            Vertex(position: Vec4(x: -0.5, y: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
-            Vertex(position: Vec4(x:  0.5, y: -0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
-            Vertex(position: Vec4(x: -0.5, y:  0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
-            Vertex(position: Vec4(x:  0.5, y:  0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
-        ], count: 4)
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z: 0.5), color: Vec4(x: 1, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z: 0.5), color: Vec4(x: 1, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z: 0.5), color: Vec4(x: 1, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z: 0.5), color: Vec4(x: 1, y: 1, z: 0, w: 1)),
+            
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 0, w: 1)),
+            
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z: -0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z:  0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z: -0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z:  0.5), color: Vec4(x: 0, y: 1, z: 0, w: 1)),
+            
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z:  0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z: -0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z:  0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z: -0.5), color: Vec4(x: 0, y: 0, z: 1, w: 1)),
+            
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z: -0.5), color: Vec4(x: 1, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y: -0.5, z:  0.5), color: Vec4(x: 1, y: 0, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y: -0.5, z:  0.5), color: Vec4(x: 1, y: 0, z: 1, w: 1)),
+            
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z:  0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z:  0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
+            Vertex(position: Vec4(x: -0.5, y:  0.5, z: -0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
+            Vertex(position: Vec4(x:  0.5, y:  0.5, z: -0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
+        ], count: 24)
+        
+        var elements: CConstPointer<GLushort> = [
+            0, 1, 2, 3,
+            3, 4,
+            4, 5, 6, 7,
+            7, 8,
+            8, 9, 10, 11,
+            11, 12,
+            12, 13, 14, 15,
+            15, 16,
+            16, 17, 18, 19,
+            19, 20,
+            20, 21, 22, 23,
+        ]
+        
+        ibo.bindElements(elements, count: 34)
         
         // After binding some data to our VBO, we must bind our VBO's data
         // into our Vertex Array Object (VAO) using the associated Shader attributes
@@ -35,17 +77,23 @@ class DemoScene: Scene {
         var colorAttrib    = GLuint(shader.attribute("color"))
         vao.bindVec4(positionAttrib, vbo: vbo, offset: 0)
         vao.bindVec4(colorAttrib,    vbo: vbo, offset: sizeof(Vec4))
+        vao.bindElements(ibo)
     }
     
     func update() {
         // Rotate the matrix by 1 deg each frame (1 full rotation should take 6 seconds)
-        matrix = matrix * Mat4.rotateZ(radians(1))
+        matrix = matrix * Mat4.rotateZ(radians(0.25))
+        matrix = matrix * Mat4.rotateY(radians(0.33))
+        matrix = matrix * Mat4.rotateX(radians(0.75))
     }
     
     func render() {
+        glDepthFunc(GLenum(GL_LESS))
+        glEnable(GLenum(GL_DEPTH_TEST))
+        
         // Clear the screen to black before we draw anything
         glClearColor(0, 0, 0, 0)
-        glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
+        glClear(GLbitfield(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT))
         
         // Bind the Shader we plan to use
         shader.bind()
@@ -57,7 +105,7 @@ class DemoScene: Scene {
         vao.bind()
         
         // Finally submit what we are drawing to the GPU
-        glDrawArrays(GLenum(GL_TRIANGLE_STRIP), 0, 4)
+        glDrawElements(GLenum(GL_TRIANGLE_STRIP), 34, GLenum(GL_UNSIGNED_SHORT), nil)
     }
     
     func resize(#width: CFloat, height: CFloat) {
