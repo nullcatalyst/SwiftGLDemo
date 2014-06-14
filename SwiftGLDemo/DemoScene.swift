@@ -16,11 +16,19 @@ class DemoScene: Scene {
     let vao    = Vao()
     let vbo    = Vbo()
     let ibo    = Vbo()
-    var matrix = Mat4.identity()
+    var modelview  = Mat4.identity()
+    var projection = Mat4.identity()
     
     init() {
         // Load the Shader files
-        shader.load("DemoShader1.vsh", fragmentFile: "DemoShader1.fsh")
+        shader.load("DemoShader1.vsh", fragmentFile: "DemoShader1.fsh") {
+            program in
+            // Here we will bind the attibute names to the correct position
+            // Doing this will allow us to use the VBO/VAO with more than one shader, ensuring that the right
+            // values get passed in to the correct shader variables
+            glBindAttribLocation(program, 0, "position")
+            glBindAttribLocation(program, 1, "color")
+        }
         
         // Bind the vertices into the Vertex Buffer Object (VBO)
         vbo.bind([
@@ -73,18 +81,16 @@ class DemoScene: Scene {
         
         // After binding some data to our VBO, we must bind our VBO's data
         // into our Vertex Array Object (VAO) using the associated Shader attributes
-        var positionAttrib = GLuint(shader.attribute("position"))
-        var colorAttrib    = GLuint(shader.attribute("color"))
-        vao.bindVec4(positionAttrib, vbo: vbo, offset: 0)
-        vao.bindVec4(colorAttrib,    vbo: vbo, offset: sizeof(Vec4))
+        vao.bind(attribute: 0, type: Vec4.self, vbo: vbo, offset: 0)
+        vao.bind(attribute: 1, type: Vec4.self, vbo: vbo, offset: sizeof(Vec4))
         vao.bindElements(ibo)
     }
     
     func update() {
         // Rotate the matrix by 1 deg each frame (1 full rotation should take 6 seconds)
-        matrix = matrix * Mat4.rotateZ(radians(0.25))
-        matrix = matrix * Mat4.rotateY(radians(0.33))
-        matrix = matrix * Mat4.rotateX(radians(0.75))
+        modelview = modelview * Mat4.rotateZ(radians(0.25))
+        modelview = modelview * Mat4.rotateY(radians(0.50))
+        modelview = modelview * Mat4.rotateX(radians(0.75))
     }
     
     func render() {
@@ -99,7 +105,7 @@ class DemoScene: Scene {
         shader.bind()
         
         // Bind the updated matrix
-        shader.bind(uniform: "matrix", m: matrix)
+        shader.bind(uniform: "matrix", m: projection * Mat4.translate(x: 0, y: 0, z: -5) * modelview)
         
         // Bind the VAO we plan to use
         vao.bind()
@@ -109,6 +115,6 @@ class DemoScene: Scene {
     }
     
     func resize(#width: CFloat, height: CFloat) {
-        
+        projection = Mat4.perspective(fovy: radians(45), width: width, height: height, near: 1, far: 9)
     }
 }
