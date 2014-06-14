@@ -37,6 +37,8 @@ var currentScene: Scene?
     }
     
     class func resize(#width: CFloat, height: CFloat) {
+        viewWidth  = width
+        viewHeight = height
         currentScene?.resize(width: viewWidth, height: viewHeight)
     }
 }

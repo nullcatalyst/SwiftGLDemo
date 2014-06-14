@@ -147,7 +147,6 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     NSRect viewRectPixels = [self convertRectToBacking:viewRectPoints];
     
     // Set the new dimensions in our renderer
-//    Engine::resize(viewRectPixels.size.width, viewRectPixels.size.height);
     [Engine resizeWithWidth:viewRectPixels.size.width height:viewRectPixels.size.height];
     
     CGLUnlockContext((CGLContextObj) self.openGLContext.CGLContextObj);
