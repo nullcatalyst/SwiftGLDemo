@@ -94,12 +94,12 @@ class DemoScene: Scene {
     }
     
     func render() {
-        glDepthFunc(GLenum(GL_LESS))
-        glEnable(GLenum(GL_DEPTH_TEST))
+        glDepthFunc(GL_LESS)
+        glEnable(GL_DEPTH_TEST)
         
         // Clear the screen to black before we draw anything
         glClearColor(0, 0, 0, 0)
-        glClear(GLbitfield(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT))
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         
         // Bind the Shader we plan to use
         shader.bind()
@@ -111,7 +111,7 @@ class DemoScene: Scene {
         vao.bind()
         
         // Finally submit what we are drawing to the GPU
-        glDrawElements(GLenum(GL_TRIANGLE_STRIP), 34, GLenum(GL_UNSIGNED_SHORT), nil)
+        glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, nil)
     }
     
     func resize(#width: CFloat, height: CFloat) {

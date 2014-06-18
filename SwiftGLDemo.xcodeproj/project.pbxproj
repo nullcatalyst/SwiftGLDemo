@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D248878A1949534B00712185 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24887891949534B00712185 /* Vertex.swift */; };
 		D25F46C419480D3D00973982 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
-		D25F46C619480D7F00973982 /* SwiftGL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
 		D2AB3B5E19469B4C00655A34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5D19469B4C00655A34 /* main.swift */; };
 		D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */; };
 		D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6119469B4C00655A34 /* Images.xcassets */; };
@@ -24,6 +23,7 @@
 		D2AB3BA01946A5C200655A34 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9F1946A5C200655A34 /* DemoScene.swift */; };
 		D2AB3BAD1946A9E200655A34 /* DemoShader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3BAB1946A9E200655A34 /* DemoShader1.fsh */; };
 		D2AB3BAE1946A9E200655A34 /* DemoShader1.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3BAC1946A9E200655A34 /* DemoShader1.vsh */; };
+		D2CA62351951386C007B2DC2 /* SwiftGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,14 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D25F46C519480D7500973982 /* CopyFiles */ = {
+		D2CA62361951386C007B2DC2 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 10;
 			files = (
-				D25F46C619480D7F00973982 /* SwiftGL.framework in CopyFiles */,
+				D2CA62351951386C007B2DC2 /* SwiftGL.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -192,8 +193,8 @@
 			buildPhases = (
 				D2AB3B5419469B4C00655A34 /* Sources */,
 				D2AB3B5519469B4C00655A34 /* Frameworks */,
+				D2CA62361951386C007B2DC2 /* Embed Frameworks */,
 				D2AB3B5619469B4C00655A34 /* Resources */,
-				D25F46C519480D7500973982 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -345,7 +346,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -387,7 +388,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
