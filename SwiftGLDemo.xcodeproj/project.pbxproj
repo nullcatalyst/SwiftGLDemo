@@ -11,6 +11,7 @@
 		D25F46C419480D3D00973982 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
 		D26F16B21971037800D95EC5 /* GLWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F16B11971037800D95EC5 /* GLWindowController.swift */; };
 		D26F16B4197105E500D95EC5 /* GLFullscreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */; };
+		D297BA9E19710A0F00017F83 /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D297BA9D19710A0F00017F83 /* GLView.swift */; };
 		D2AB3B5E19469B4C00655A34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5D19469B4C00655A34 /* main.swift */; };
 		D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */; };
 		D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6119469B4C00655A34 /* Images.xcassets */; };
@@ -56,6 +57,7 @@
 		D25F46C319480D3D00973982 /* SwiftGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGL.framework; sourceTree = "<group>"; };
 		D26F16B11971037800D95EC5 /* GLWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLWindowController.swift; sourceTree = "<group>"; };
 		D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFullscreenWindow.swift; sourceTree = "<group>"; };
+		D297BA9D19710A0F00017F83 /* GLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLView.swift; sourceTree = "<group>"; };
 		D2AB3B5819469B4C00655A34 /* SwiftGLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3B5C19469B4C00655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3B5D19469B4C00655A34 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				D2AB3B7C19469BCD00655A34 /* SwiftGLDemo-Bridging-Header.h */,
 				D2AB3B8A19469CB000655A34 /* GLView.h */,
 				D2AB3B8B19469CB000655A34 /* GLView.m */,
+				D297BA9D19710A0F00017F83 /* GLView.swift */,
 				D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */,
 				D2AB3B9119469DD800655A34 /* GLWindowController.m */,
 				D26F16B11971037800D95EC5 /* GLWindowController.swift */,
@@ -296,6 +299,7 @@
 				D2AB3B8C19469CB000655A34 /* GLView.m in Sources */,
 				D26F16B21971037800D95EC5 /* GLWindowController.swift in Sources */,
 				D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */,
+				D297BA9E19710A0F00017F83 /* GLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

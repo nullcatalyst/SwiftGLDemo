@@ -30,47 +30,6 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     return result;
 }
 
-- (void) awakeFromNib {
-    NSOpenGLPixelFormatAttribute attrs[] = {
-        // Must specify the 3.2 Core Profile to use OpenGL 3.2
-        NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
-        
-        NSOpenGLPFADoubleBuffer,
-        
-        NSOpenGLPFAColorSize, 32,
-        NSOpenGLPFADepthSize, 24,
-        NSOpenGLPFAStencilSize, 8,
-        
-        NSOpenGLPFAMultisample,
-        NSOpenGLPFASampleBuffers, 1,
-        NSOpenGLPFASamples, 4,
-        
-        0
-    };
-    
-    NSOpenGLPixelFormat *pf = [[NSOpenGLPixelFormat alloc] initWithAttributes:attrs];
-    if (!pf) {
-        NSLog(@"No OpenGL pixel format");
-    }
-    
-    NSOpenGLContext *context = [[NSOpenGLContext alloc] initWithFormat:pf shareContext:nil];
-    
-#ifdef DEBUG
-    // When we're using a CoreProfile context, crash if we call a legacy OpenGL function
-    // This will make it much more obvious where and when such a function call is made so
-    // that we can remove such calls.
-    // Without this we'd simply get GL_INVALID_OPERATION error for calling legacy functions
-    // but it would be more difficult to see where that function was called.
-    CGLEnable((CGLContextObj) [context CGLContextObj], kCGLCECrashOnRemovedFunctions);
-#endif
-    
-    [self setPixelFormat:pf];
-    [self setOpenGLContext:context];
-    
-    // Opt-In to Retina resolution
-    [self setWantsBestResolutionOpenGLSurface:YES];
-}
-
 - (void) prepareOpenGL {
     [super prepareOpenGL];
     
@@ -79,15 +38,15 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     [self initGL];
     
     // Create a display link capable of being used with all active displays
-    CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
+    CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
     
     // Set the renderer output callback function
-    CVDisplayLinkSetOutputCallback(displayLink, &displayLinkCallback, (__bridge void *) self);
+    CVDisplayLinkSetOutputCallback(_displayLink, &displayLinkCallback, (__bridge void *) self);
     
     // Set the display link for the current renderer
     CGLContextObj cglContext = (CGLContextObj) self.openGLContext.CGLContextObj;
     CGLPixelFormatObj cglPixelFormat = (CGLPixelFormatObj) self.pixelFormat.CGLPixelFormatObj;
-    CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(displayLink, cglContext, cglPixelFormat);
+    CVDisplayLinkSetCurrentCGDisplayFromOpenGLContext(_displayLink, cglContext, cglPixelFormat);
     
     
     // Change the working directory so that we can use C code to grab resource files
@@ -95,17 +54,10 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     [Engine initialize];
     
     // Activate the display link
-    CVDisplayLinkStart(displayLink);
+    CVDisplayLinkStart(_displayLink);
     
     // Register to be notified when the window closes so we can stop the displaylink
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self.window];
-}
-
-- (void) windowWillClose:(NSNotification *)notification {
-    // Stop the display link when the window is closing because default
-    // OpenGL render buffers will be destroyed.  If display link continues to
-    // fire without renderbuffers, OpenGL draw calls will set errors.
-    CVDisplayLinkStop(displayLink);
 }
 
 - (void) initGL {
@@ -152,7 +104,6 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     CGLUnlockContext((CGLContextObj) self.openGLContext.CGLContextObj);
 }
 
-
 - (void) renewGState {
     // Called whenever graphics state updated (such as window resize)
     
@@ -166,35 +117,12 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeSt
     [super renewGState];
 }
 
-- (void) drawRect:(NSRect)rect {
-    // Called during resize operations
-    
-    // Avoid flickering during resize by drawiing
-    [self drawView];
-}
-
-- (void) drawView {
-    [self.openGLContext makeCurrentContext];
-    
-    // We draw on a secondary thread through the display link
-    // When resizing the view, -reshape is called automatically on the main
-    // thread. Add a mutex around to avoid the threads accessing the context
-    // simultaneously when resizing
-    CGLLockContext((CGLContextObj) self.openGLContext.CGLContextObj);
-    
-    [Engine update];
-    [Engine render];
-    
-    CGLFlushDrawable((CGLContextObj) self.openGLContext.CGLContextObj);
-    CGLUnlockContext((CGLContextObj) self.openGLContext.CGLContextObj);
-}
-
 - (void) dealloc {
     // Stop the display link BEFORE releasing anything in the view
     // otherwise the display link thread may call into the view and crash
     // when it encounters something that has been release
-    CVDisplayLinkStop(displayLink);
-    CVDisplayLinkRelease(displayLink);
+    CVDisplayLinkStop(_displayLink);
+    CVDisplayLinkRelease(_displayLink);
     
     // Release the renderer AFTER display link has been released
     [Engine finalize];
