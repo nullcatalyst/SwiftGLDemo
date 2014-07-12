@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import OpenGL
 
 /// IMPORTANT: The SwiftGL framework must be imported to be able to use it
 import SwiftGL
+
+let AttribPosition: GLuint = 0
+let AttribColor:    GLuint = 1
 
 class DemoScene: Scene {
     let shader = Shader()
@@ -21,13 +25,13 @@ class DemoScene: Scene {
     
     init() {
         // Load the Shader files
-        shader.load("DemoShader1.vsh", fragmentFile: "DemoShader1.fsh") {
+        shader.load(vertexFile: "DemoShader1.vsh", fragmentFile: "DemoShader1.fsh") {
             program in
             // Here we will bind the attibute names to the correct position
             // Doing this will allow us to use the VBO/VAO with more than one shader, ensuring that the right
             // values get passed in to the correct shader variables
-            glBindAttribLocation(program, 0, "position")
-            glBindAttribLocation(program, 1, "color")
+            glBindAttribLocation(program, AttribPosition, "Position")
+            glBindAttribLocation(program, AttribColor,    "Color")
         }
         
         // Bind the vertices into the Vertex Buffer Object (VBO)
@@ -63,34 +67,33 @@ class DemoScene: Scene {
             Vertex(position: Vec4(x:  0.5, y:  0.5, z: -0.5), color: Vec4(x: 1, y: 1, z: 1, w: 1)),
         ], count: 24)
         
-        var elements: CConstPointer<GLushort> = [
-            0, 1, 2, 3,
-            3, 4,
-            4, 5, 6, 7,
-            7, 8,
-            8, 9, 10, 11,
-            11, 12,
-            12, 13, 14, 15,
-            15, 16,
-            16, 17, 18, 19,
-            19, 20,
-            20, 21, 22, 23,
-        ]
+        ibo.bindElements([
+        GLushort(0), GLushort(1), GLushort(2), GLushort(3),
+            GLushort(3), GLushort(4),
+            GLushort(4), GLushort(5), GLushort(6), GLushort(7),
+            GLushort(7), GLushort(8),
+            GLushort(8), GLushort(9), GLushort(10), GLushort(11),
+            GLushort(11), GLushort(12),
+            GLushort(12), GLushort(13), GLushort(14), GLushort(15),
+            GLushort(15), GLushort(16),
+            GLushort(16), GLushort(17), GLushort(18), GLushort(19),
+            GLushort(19), GLushort(20),
+            GLushort(20), GLushort(21), GLushort(22), GLushort(23),
+        ], count: 34)
         
-        ibo.bindElements(elements, count: 34)
         
         // After binding some data to our VBO, we must bind our VBO's data
         // into our Vertex Array Object (VAO) using the associated Shader attributes
-        vao.bind(attribute: 0, type: Vec4.self, vbo: vbo, offset: 0)
-        vao.bind(attribute: 1, type: Vec4.self, vbo: vbo, offset: sizeof(Vec4))
+        vao.bind(attribute: AttribPosition, type: Vec4.self, vbo: vbo, offset: 0)
+        vao.bind(attribute: AttribColor,    type: Vec4.self, vbo: vbo, offset: sizeof(Vec4))
         vao.bindElements(ibo)
     }
     
     func update() {
         // Rotate the matrix by 1 deg each frame (1 full rotation should take 6 seconds)
-        modelview = modelview * Mat4.rotateZ(radians(0.25))
-        modelview = modelview * Mat4.rotateY(radians(0.50))
-        modelview = modelview * Mat4.rotateX(radians(0.75))
+        modelview *= Mat4.rotateZ(radians(0.25))
+        modelview *= Mat4.rotateY(radians(0.50))
+        modelview *= Mat4.rotateX(radians(0.75))
     }
     
     func render() {
@@ -98,14 +101,14 @@ class DemoScene: Scene {
         glEnable(GL_DEPTH_TEST)
         
         // Clear the screen to black before we draw anything
-        glClearColor(0, 0, 0, 0)
+        glClearColor(0.1, 0.1, 0.1, 0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         
         // Bind the Shader we plan to use
         shader.bind()
         
         // Bind the updated matrix
-        shader.bind(uniform: "matrix", m: projection * Mat4.translate(x: 0, y: 0, z: -5) * modelview)
+        shader.bind(uniform: "Matrix", m: projection * Mat4.translate(x: 0, y: 0, z: -5) * modelview)
         
         // Bind the VAO we plan to use
         vao.bind()

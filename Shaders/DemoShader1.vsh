@@ -1,13 +1,13 @@
 #version 330
 
-uniform mat4 matrix;
+uniform mat4 Matrix;
 
-in vec4 position;
-in vec4 color;
+in vec4 Position;
+in vec4 Color;
 
-out vec4 v_color;
+out vec4 color;
 
 void main() {
-    v_color     = color;
-    gl_Position = matrix * position;
+    color       = Color;
+    gl_Position = Matrix * Position;
 }
