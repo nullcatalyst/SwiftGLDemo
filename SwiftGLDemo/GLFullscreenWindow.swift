@@ -19,7 +19,7 @@ class GLFullscreenWindow: NSWindow {
         super.init(contentRect:screenRect, styleMask:NSBorderlessWindowMask, backing:.Buffered, defer:true)
         
         // Set the window level to be above the menu bar to cover everything else
-        level = kCGMainMenuWindowLevelKey + 1
+        level = Int(CGWindowLevelForKey(CGWindowLevelKey(kCGMainMenuWindowLevelKey)) + 1)
         
         // Set opaque
         opaque = true
