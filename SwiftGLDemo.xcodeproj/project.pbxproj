@@ -10,13 +10,13 @@
 		D248878A1949534B00712185 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24887891949534B00712185 /* Vertex.swift */; };
 		D25F46C419480D3D00973982 /* SwiftGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F46C319480D3D00973982 /* SwiftGL.framework */; };
 		D26F16B21971037800D95EC5 /* GLWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F16B11971037800D95EC5 /* GLWindowController.swift */; };
+		D26F16B4197105E500D95EC5 /* GLFullscreenWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */; };
 		D2AB3B5E19469B4C00655A34 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5D19469B4C00655A34 /* main.swift */; };
 		D2AB3B6019469B4C00655A34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B5F19469B4C00655A34 /* AppDelegate.swift */; };
 		D2AB3B6219469B4C00655A34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6119469B4C00655A34 /* Images.xcassets */; };
 		D2AB3B6519469B4C00655A34 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AB3B6319469B4C00655A34 /* MainMenu.xib */; };
 		D2AB3B7119469B4C00655A34 /* SwiftGLDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B7019469B4C00655A34 /* SwiftGLDemoTests.swift */; };
 		D2AB3B8C19469CB000655A34 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8B19469CB000655A34 /* GLView.m */; };
-		D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */; };
 		D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9119469DD800655A34 /* GLWindowController.m */; };
 		D2AB3B9419469EE900655A34 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9319469EE900655A34 /* Engine.swift */; };
 		D2AB3B9619469F0900655A34 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB3B9519469F0900655A34 /* Scene.swift */; };
@@ -55,6 +55,7 @@
 		D24887891949534B00712185 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		D25F46C319480D3D00973982 /* SwiftGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGL.framework; sourceTree = "<group>"; };
 		D26F16B11971037800D95EC5 /* GLWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLWindowController.swift; sourceTree = "<group>"; };
+		D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFullscreenWindow.swift; sourceTree = "<group>"; };
 		D2AB3B5819469B4C00655A34 /* SwiftGLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AB3B5C19469B4C00655A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2AB3B5D19469B4C00655A34 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -67,8 +68,6 @@
 		D2AB3B7C19469BCD00655A34 /* SwiftGLDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGLDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		D2AB3B8A19469CB000655A34 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		D2AB3B8B19469CB000655A34 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
-		D2AB3B8D19469D8C00655A34 /* GLFullscreenWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFullscreenWindow.h; sourceTree = "<group>"; };
-		D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFullscreenWindow.m; sourceTree = "<group>"; };
 		D2AB3B9119469DD800655A34 /* GLWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLWindowController.m; sourceTree = "<group>"; };
 		D2AB3B9319469EE900655A34 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		D2AB3B9519469F0900655A34 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -134,8 +133,7 @@
 				D2AB3B7C19469BCD00655A34 /* SwiftGLDemo-Bridging-Header.h */,
 				D2AB3B8A19469CB000655A34 /* GLView.h */,
 				D2AB3B8B19469CB000655A34 /* GLView.m */,
-				D2AB3B8D19469D8C00655A34 /* GLFullscreenWindow.h */,
-				D2AB3B8E19469D8C00655A34 /* GLFullscreenWindow.m */,
+				D26F16B3197105E500D95EC5 /* GLFullscreenWindow.swift */,
 				D2AB3B9119469DD800655A34 /* GLWindowController.m */,
 				D26F16B11971037800D95EC5 /* GLWindowController.swift */,
 				D2AB3B5D19469B4C00655A34 /* main.swift */,
@@ -292,10 +290,10 @@
 				D2AB3B9419469EE900655A34 /* Engine.swift in Sources */,
 				D248878A1949534B00712185 /* Vertex.swift in Sources */,
 				D2AB3BA01946A5C200655A34 /* DemoScene.swift in Sources */,
+				D26F16B4197105E500D95EC5 /* GLFullscreenWindow.swift in Sources */,
 				D2AB3B5E19469B4C00655A34 /* main.swift in Sources */,
 				D2AB3B9619469F0900655A34 /* Scene.swift in Sources */,
 				D2AB3B8C19469CB000655A34 /* GLView.m in Sources */,
-				D2AB3B8F19469D8C00655A34 /* GLFullscreenWindow.m in Sources */,
 				D26F16B21971037800D95EC5 /* GLWindowController.swift in Sources */,
 				D2AB3B9219469DD800655A34 /* GLWindowController.m in Sources */,
 			);

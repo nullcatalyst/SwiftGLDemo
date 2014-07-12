@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Scott Bennett. All rights reserved.
 //
 
-#import <SwiftGLDemo-Swift.h>
+#import "SwiftGLDemo-Swift.h"
 
 @implementation GLWindowController (Keyboard)
 
